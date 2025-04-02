@@ -1,10 +1,9 @@
-// components/UserHeader.tsx
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
-const UserHeader = () => {
+const Header = () => {
   const router = useRouter();
 
   return (
@@ -12,7 +11,7 @@ const UserHeader = () => {
       <h1 className="text-2xl font-bold">NomNom</h1>
       <div className="flex items-center space-x-4">
         <p className="hidden sm:block">test@gmail.com</p>
-        <Button variant="outline" onClick={() => router.push("/login")}>
+        <Button  onClick={() => router.push("/login")}>
           Sign out
         </Button>
       </div>
@@ -20,4 +19,4 @@ const UserHeader = () => {
   );
 };
 
-export default UserHeader;
+export default Header;

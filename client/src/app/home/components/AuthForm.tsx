@@ -47,76 +47,70 @@ const AuthForm = ({ formType }: AuthFormProps) => {
   };
 
   return (
-    <div className="max-w-md p-8 space-y-4 rounded-xl shadow-lg bg-white">
-      <h2 className="text-3xl font-bold text-center text-gray-800">
-        {formType === "login" ? "Welcome Back!" : "Join Us!"}
-      </h2>
-      <p className="text-center text-gray-500">
-        {formType === "login" ? "Login to continue" : "Create your account"}
-      </p>
-
-      {error && <div className="text-red-500 text-center">{error}</div>}
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="email" className="block text-gray-600">
-            Email:
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            required
-          />
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-600 p-6">
+      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-2xl space-y-6">
+        <div className="flex flex-col items-center space-y-2">
+          <img src="images/food-delivery.jpg" alt="Auth" className="w-20 h-20" />
+          <h2 className="text-4xl font-extrabold text-gray-800">
+            {formType === "login" ? "Welcome Back!" : "Create Account"}
+          </h2>
+          <p className="text-gray-500 text-sm">
+            {formType === "login" ? "Login to your account" : "Sign up to get started"}
+          </p>
         </div>
-        <div>
-          <label htmlFor="password" className="block text-gray-600">
-            Password:
-          </label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            required
-          />
-        </div>
-
-        {formType === "signup" && (
+        {error && <div className="text-red-500 text-center">{error}</div>}
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="confirmPassword" className="block text-gray-600">
-              Confirm Password:
-            </label>
             <input
-              type="password"
-              id="confirmPassword"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-3 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              placeholder="Email Address"
               required
             />
           </div>
-        )}
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300"
-        >
-          {loading ? (formType === "login" ? "Logging In..." : "Signing Up...") : formType === "login" ? "Log In" : "Sign Up"}
-        </button>
-
-        <button
-          type="button"
-          className="w-full py-2 bg-gray-100 text-blue-500 rounded-lg hover:bg-gray-200 transition duration-300"
-          onClick={() => router.push(formType === "login" ? `/signup` : `/login`)}
-        >
-          {formType === "login" ? "Create Account" : "Already have an account? Log In"}
-        </button>
-      </form>
+          <div>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-3 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              placeholder="Password"
+              required
+            />
+          </div>
+          {formType === "signup" && (
+            <div>
+              <input
+                type="password"
+                id="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="w-full px-4 py-3 border rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                placeholder="Confirm Password"
+                required
+              />
+            </div>
+          )}
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition duration-300 disabled:bg-purple-300"
+          >
+            {loading ? (formType === "login" ? "Logging In..." : "Signing Up...") : formType === "login" ? "Log In" : "Sign Up"}
+          </button>
+          <button
+            type="button"
+            className="w-full py-3 bg-gray-200 text-purple-600 rounded-lg hover:bg-gray-300 transition duration-300"
+            onClick={() => router.push(formType === "login" ? `/signup` : `/login`)}
+          >
+            {formType === "login" ? "Create Account" : "Already have an account? Log In"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

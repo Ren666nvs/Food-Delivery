@@ -1,6 +1,6 @@
 "use client";
 import AuthForm from "@/app/home/components/AuthForm";
-import Image from "next/image";
+// import Image from "next/image";
 export default function LoginPage() {
   return (
     <div className="min-h-screen flex flex-row justify-between bg-white">
@@ -8,12 +8,12 @@ export default function LoginPage() {
         <AuthForm formType="login" />
       </div>
 
-      {/* <Image
-  src="/images/food-delivery.jpg"
-  alt="Food delivery"
-  fill
-  className="object-cover sm:object-contain lg:object-cover"
-/> */}
+{/* //       <Image
+//   src="/images/food-delivery.jpg"
+//   alt="Food delivery"
+//   fill
+//   className="object-cover sm:object-contain lg:object-cover"
+// /> */}
     </div>
   );
 }

@@ -15,8 +15,10 @@
     "lucide-react": "^0.483.0",
     "next": "15.2.4",
     "next-cloudinary": "^6.16.0",
+    "nuqs": "^2.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-toastify": "^11.0.5",
     "tailwind-merge": "^3.0.2",
     "tw-animate-css": "^1.2.4"
   },

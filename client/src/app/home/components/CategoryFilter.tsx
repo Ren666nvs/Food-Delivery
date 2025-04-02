@@ -1,5 +1,8 @@
-// components/CategoryFilter.tsx
 "use client";
+
+import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 type CategoryProps = {
   categories: string[];
@@ -16,11 +19,22 @@ const categoryEmojis: Record<string, string> = {
   Seafood: "🐟",
 };
 
-const CategoryFilter = ({
-  categories,
-  selectedCategory,
-  onSelectCategory,
-}: CategoryProps) => {
+const CategoryFilter = ({ selectedCategory, onSelectCategory }: CategoryProps) => {
+  const [categories, setCategories] = useState<string[]>([]);
+
+  const getCategories = async () => {
+    try {
+      const categoryResponse = await axios.get("/food/category");
+      setCategories(categoryResponse.data);
+    } catch {
+      toast("Failed to fetch categories");
+    }
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
   return (
     <div className="flex justify-center space-x-4 mt-10">
       <button
