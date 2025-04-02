@@ -5,7 +5,7 @@ import UserHeader from "@/app/home/components/Header";
 import CategoryFilter from "@/app/home/components/CategoryFilter";
 import FoodCard from "@/app/home/components/FoodCard";
 import Footer from "@/app/home/components/Footer";
-import FoodModal from "@/app/home/components/FoodModal";
+import FoodModal from "@/components/FoodModal";
 
 const sampleFoods = [
   {
