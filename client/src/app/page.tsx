@@ -1,48 +1,49 @@
-"use client";
 
-import { useState } from "react";
-import UserHeader from "@/app/home/components/Header";
-import CategoryFilter from "@/app/home/components/CategoryFilter";
-import FoodCard from "@/app/home/components/FoodCard";
-import Footer from "@/app/home/components/Footer";
-import FoodModal from "@/components/FoodModal";
+// import Order from "@/app/home/components/Order";
+// import { Categories } from "./home/components/Categories";
+// import { Foods } from "@/app/home/components/Foods";
 
-const sampleFoods = [
-  {
-    name: "Finger Food",
-    description: "Crunchy snack with fresh ingredients.",
-    price: 12.99,
-    image: "/images/finger-food.jpeg",
-  },
-  {
-    name: "Cranberry Bites",
-    description: "Tangy bites with cranberry and cheese.",
-    price: 10.99,
-    image: "/images/CranberryBites.jpeg",
-  },
-];
+// const Homepage = () => {
+//   return (
+//     <div className="flex flex-col md:flex-row h-screen bg-gray-900 text-white">
+//       {/* Navbar */}
+//       <div className="md:w-[250px]">
+//         <Navbar />
+//       </div>
 
-export default function HomePage() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+//       {/* Main Content */}
+//       <div className="flex-1 overflow-y-auto">
+//         <div className="sticky top-0 z-10 bg-gray-800">
+//           {/* <Categories /> */}
+//         </div>
+//         <div className="mt-4">
+//           {/* <Foods /> */}
+//         </div>
+//       </div>
 
-  const filteredFoods = sampleFoods.filter((food) =>
-    selectedCategory ? food.category === selectedCategory : true
-  );
+//       {/* Order Sidebar */}
+//       <div className="flex-shrink-0 w-full md:w-[400px] bg-gray-800">
+//         {/* <Order /> */}
+//       </div>
+//     </div>
+//   );
+// };
 
+// export default Homepage;
+'use client';
+
+import Navbar from "@/app/home/components/Navbar";
+import Banner from "./home/components/Banner";
+import Categories from "@/app/home/components/Categories"
+
+export default function Home() {
   return (
-    <div className="bg-white min-h-screen">
-      <UserHeader />
-      <CategoryFilter
-        categories={["Appetizers", "Salads", "Pizzas", "Desserts"]}
-        selectedCategory={selectedCategory}
-        onSelectCategory={setSelectedCategory}
-      />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-        {filteredFoods.map((food, index) => (
-          <FoodCard key={index} food={food} onAddToCart={() => {}} />
-        ))}
+    <main className="bg-black text-white min-h-screen">
+      <Navbar />
+      <div className="px-6 py-8 space-y-8">
+        <Banner />
+        <Categories /> 
       </div>
-      <Footer />
-    </div>
+    </main>
   );
 }
