@@ -36,4 +36,14 @@ import Navbar from "@/app/home/components/Navbar";
 import Banner from "./home/components/Banner";
 import Categories from "@/app/home/components/Categories"
 
-
+export default function Home() {
+  return (
+    <main className="bg-black text-white min-h-screen">
+      <Navbar />
+      <div className="px-6 py-8 space-y-8">
+        <Banner />
+        <Categories /> 
+      </div>
+    </main>
+  );
+}
